@@ -11,7 +11,8 @@
 # 'a1b2c3d4e5f'
 # 'treb7uchet'
 
-def get_first_digit(my_string): # Returns the first digit in each string.
+# Returns the first digit in each string.
+def get_first_digit(my_string): 
     index = 0
 
     while index < len(my_string):
@@ -24,7 +25,8 @@ def get_first_digit(my_string): # Returns the first digit in each string.
     
     return first_digit
 
-def get_last_digit(my_string): # Returns the last digit in each string.
+# Returns the last digit in each string.
+def get_last_digit(my_string): 
     index = len(my_string) - 1
 
     while index >= 0:
@@ -38,15 +40,15 @@ def get_last_digit(my_string): # Returns the last digit in each string.
         
     return last_digit
 
-def create_calibration_value(my_string): # Returns the first and last digit
-    # combined (the calibration value)
+# Returns the first and last digit combined (the calibration value)
+def create_calibration_value(my_string): 
     first_digit = get_first_digit(my_string)
     last_digit = get_last_digit(my_string)
     calibration_value = int(first_digit + last_digit)
     return calibration_value
 
-def get_all_calibration_values(calibration_document): # Returns a list of
-    # calibration values 
+# Returns a list of calibration values 
+def get_all_calibration_values(calibration_document): 
     list_of_strings_to_be_parsed = calibration_document.split()
 
     all_calibration_values = []
