@@ -11,7 +11,7 @@
 # 'a1b2c3d4e5f'
 # 'treb7uchet'
 
-def get_first_digit(my_string):
+def get_first_digit(my_string): # Returns the first digit in each string.
     index = 0
 
     while index < len(my_string):
@@ -24,7 +24,7 @@ def get_first_digit(my_string):
     
     return first_digit
 
-def get_last_digit(my_string):
+def get_last_digit(my_string): # Returns the last digit in each string.
     index = len(my_string) - 1
 
     while index >= 0:
@@ -38,11 +38,24 @@ def get_last_digit(my_string):
         
     return last_digit
 
-def create_calibration_value(my_string):
+def create_calibration_value(my_string): # Returns the first and last digit
+    # combined (the calibration value)
     first_digit = get_first_digit(my_string)
     last_digit = get_last_digit(my_string)
     calibration_value = int(first_digit + last_digit)
     return calibration_value
+
+def get_all_calibration_values(calibration_document): # Returns a list of
+    # calibration values 
+    list_of_strings_to_be_parsed = calibration_document.split()
+
+    all_calibration_values = []
+
+    for the_string in list_of_strings_to_be_parsed:
+        calibration_value = create_calibration_value(the_string)
+        all_calibration_values.append(calibration_value)
+
+    return all_calibration_values
 
 calibration_document = '''
 23krgjlpone
@@ -1046,13 +1059,11 @@ mxhnceightfiveftmcdpgv63two6four
 nine6five181
 sevenbsixsbzmone55
 '''
-list_of_strings_to_be_parsed = calibration_document.split()
 
-returned_calibration_values = []
+all_values = get_all_calibration_values(calibration_document)
 
-for the_string in list_of_strings_to_be_parsed:
-    calibration_value = create_calibration_value(the_string)
-    returned_calibration_values.append(calibration_value)
-
-total = sum(returned_calibration_values)
+total = sum(all_values)
 print(total)
+
+
+
