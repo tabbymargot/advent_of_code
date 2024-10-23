@@ -22,20 +22,24 @@ def get_first_digit(my_string):
         # Using slicing, get a substring starting at the current index position
         substring = my_string[index:]
 
-        # If the substring starts with a digit, convert the digit to an integer and assign it to first_digit
+        # If the substring starts with a digit, convert the digit to an 
+        # integer and assign it to first_digit
         if substring[0].isdigit():
             first_digit = substring[0]
-        # Otherwise, if the substring starts with a numberic string from the dictionary, assign its associated integer value to first_digit
+        # Otherwise, if the substring starts with a numberic string from the 
+        # dictionary, assign its associated integer value to first_digit
         else:
             for key in words_and_digits:
                 if substring.startswith(key):
                     first_digit = words_and_digits[key]
 
-        # If first_digit is truthy (ie it's been reassigned to an integer), return it
+        # If first_digit is truthy (ie it's been reassigned to an integer), 
+        # return it
         if first_digit:
             return first_digit
 
-        # Otherwise, increment the index and restart the loop to get the next substring
+        # Otherwise, increment the index and restart the loop to get the next 
+        # substring
         index += 1
 
 # Returns a string containing a digit representation of the last number in 
@@ -59,8 +63,7 @@ def get_last_digit(my_string):
     while index >= (len(my_string) * -1):
         # Using slicing, get a substring starting at the current index position
         substring = my_string[index:]
-        # print(index)
-        # print(substring)
+        
         # If the substring starts with a digit, convert the digit to an integer and assign it to last_digit
         if substring[0].isdigit():
             last_digit = substring[0]
@@ -70,11 +73,13 @@ def get_last_digit(my_string):
                 if substring.startswith(key):
                     last_digit = words_and_digits[key]
 
-        # If last_digit is truthy (ie it's been reassigned to an integer), return it
+        # If last_digit is truthy (ie it's been reassigned to an integer), 
+        # return it
         if last_digit:
             return last_digit
         
-        # Otherwise, increment the index and restart the loop to get the next substring
+        # Otherwise, increment the index and restart the loop to get the next 
+        # substring
         index -= 1
 
 # Returns the first and last digit combined (the calibration value) as an 
@@ -83,7 +88,6 @@ def create_calibration_value(my_string):
     first_digit = get_first_digit(my_string)
     last_digit = get_last_digit(my_string)
     calibration_value = int(first_digit + last_digit)
-    # print(calibration_value)
     return calibration_value
 
 # Returns a list containing all the calibration values 
