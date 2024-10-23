@@ -1,6 +1,7 @@
 # https://adventofcode.com/2023/day/1
 
-# Returns a string containing a digit representation of the first number in each string, whether that's a word or a digit
+# Returns a string containing a digit representation of the first number in
+# each string, whether that's a word or a digit
 def get_first_digit(my_string): 
 
     index = 0
@@ -37,7 +38,8 @@ def get_first_digit(my_string):
         # Otherwise, increment the index and restart the loop to get the next substring
         index += 1
 
-# Returns a string containing a digit representation of the last number in each string, whether that's a word or a digit
+# Returns a string containing a digit representation of the last number in 
+# each string, whether that's a word or a digit
 def get_last_digit(my_string): 
 
     index = -1
@@ -75,7 +77,8 @@ def get_last_digit(my_string):
         # Otherwise, increment the index and restart the loop to get the next substring
         index -= 1
 
-# Returns the first and last digit combined (the calibration value) as an integer
+# Returns the first and last digit combined (the calibration value) as an 
+# integer
 def create_calibration_value(my_string): 
     first_digit = get_first_digit(my_string)
     last_digit = get_last_digit(my_string)
