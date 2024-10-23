@@ -26,7 +26,7 @@ def get_first_digit(my_string):
         # integer and assign it to first_digit
         if substring[0].isdigit():
             first_digit = substring[0]
-        # Otherwise, if the substring starts with a numberic string from the 
+        # Otherwise, if the substring starts with a numeric string from the 
         # dictionary, assign its associated integer value to first_digit
         else:
             for key in words_and_digits:
@@ -64,10 +64,12 @@ def get_last_digit(my_string):
         # Using slicing, get a substring starting at the current index position
         substring = my_string[index:]
         
-        # If the substring starts with a digit, convert the digit to an integer and assign it to last_digit
+        # If the substring starts with a digit, convert the digit to an integer 
+        # and assign it to last_digit
         if substring[0].isdigit():
             last_digit = substring[0]
-        # Otherwise, if the substring starts with a numberic string from the dictionary, assign its associated integer value to last_digit
+        # Otherwise, if the substring starts with a numeric string from the 
+        # dictionary, assign its associated integer value to last_digit
         else:
             for key in words_and_digits:
                 if substring.startswith(key):
