@@ -18,6 +18,20 @@ If value == blue, key should be <= 14
 
 If any of the above isn't true, the game is impossible
 
+------------
+
+Don't need to create separate dictionaries. Can all be in one collection.
+
+Remove commas and semi-colons
+
+Take one integer and colour at a time. Pass them into a function that 
+- checks the colour
+- compares the integer with the max allowed integer
+
+first_list = lst[:2]
+del lst[:2]
+
+if the integer is too high, stop the process and return a 'game failed' message
 '''
 outer_dict = {
     'Game 4:':[
