@@ -7,8 +7,8 @@ def convert_string_to_list(my_string):
 def get_game_id(list_of_string_words):
     id_with_punctuation = list_of_string_words[1]
     list_of_id_characters = list(id_with_punctuation)
-    list_of_id_characters.pop()
-    id_as_string = ''.join(list_of_id_characters)
+    id_digits_only = list_of_id_characters[:-1] # Removes colon
+    id_as_string = ''.join(id_digits_only)
     return int(id_as_string)
 
 def get_game_values(list_of_string_words):
