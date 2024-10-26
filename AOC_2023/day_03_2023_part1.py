@@ -34,27 +34,7 @@ string3 = '$$$$$$$'
 
 # GET THE NEXT 3 STRINGS
 
-def get_newline_occurence_for_substr_start(input_string):
-    counter = 1
-    total_newline_chars = input_string.count("\n")
-
-    while counter <= total_newline_chars:
-        newline_occurence_needed_for_start = counter
-        break
-        # counter += 1
-    return newline_occurence_needed_for_start
-
-def get_newline_occurence_for_substr_end(input_string):
-    counter = 4
-    total_newline_chars = input_string.count("\n")
-
-    while counter <= total_newline_chars:
-        newline_occurence_needed_for_end = counter
-        break
-        # counter += 1
-    return newline_occurence_needed_for_end
-
-
+# Get the index of the newline occurence needed to delimit the start of the next substring
 def find_index_for_substr_start(input_string, newline_char, newline_occurence_needed_for_start):
     count = 0
     for i in range(len(input_string)):
@@ -64,6 +44,7 @@ def find_index_for_substr_start(input_string, newline_char, newline_occurence_ne
                 return i
     return -1
 
+# Get the index of the newline occurence needed to delimit the end of the next substring
 def find_index_for_substr_end(input_string, newline_char, newline_occurence_needed_for_end):
     count = 0
     for i in range(len(input_string)):
@@ -81,25 +62,18 @@ input_string = '''
 ......#...
 '''
 newline_char = "\n"
+start_counter = 1
+end_counter = 4
+total_newline_chars = input_string.count("\n")
 
-newline_occurence_needed_for_start = get_newline_occurence_for_substr_start(input_string)
-index_for_substr_start = find_index_for_substr_start(input_string, newline_char, newline_occurence_needed_for_start)
+while end_counter <= total_newline_chars:
 
-newline_occurence_needed_for_end = get_newline_occurence_for_substr_end(input_string)
+    index_for_substr_start = find_index_for_substr_start(input_string, newline_char, start_counter)
 
-index_for_substr_end = find_index_for_substr_end(input_string, newline_char, newline_occurence_needed_for_end)
+    index_for_substr_end = find_index_for_substr_end(input_string, newline_char, end_counter)
 
-print(index_for_substr_start)
-print(index_for_substr_end)
+    print(f'This is the index for substring start: {index_for_substr_start}')
+    print(f'This is the index for substring end: {index_for_substr_end}')
 
-
-
-# input_string = '''
-# 467..114..
-# ...*......
-# ..35..633.
-# ......#...
-# '''
-# print(set_starting_point(input_string))
-
-
+    start_counter += 1
+    end_counter += 1
