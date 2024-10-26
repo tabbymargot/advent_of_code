@@ -54,29 +54,15 @@ def find_index_for_substr_end(input_string, newline_char, newline_occurence_need
                 return i
     return -1
 
-def get_three_line_substring(input_string):
-    newline_char = "\n"
-    starting_delimiter = 1
-    ending_delimiter = 4
-    total_newline_chars = input_string.count("\n")
+def get_three_line_substring(input_string, starting_delimiter, ending_delimiter):
+    index_for_substr_start = find_index_for_substr_start(input_string, '\n', starting_delimiter)
 
-    while ending_delimiter <= total_newline_chars:
+    index_for_substr_end = find_index_for_substr_end(input_string, '\n', ending_delimiter)
 
-        index_for_substr_start = find_index_for_substr_start(input_string, newline_char, starting_delimiter)
+    substring = input_string[index_for_substr_start:index_for_substr_end + 1]
+    substring_without_start_and_end_newlines = substring[1:-1]
 
-        index_for_substr_end = find_index_for_substr_end(input_string, newline_char, ending_delimiter)
-
-        substring = input_string[index_for_substr_start:index_for_substr_end + 1]
-        substring_without_start_and_end_newlines = substring[1:-1]
-        # print(repr(substring_without_start_and_end_newlines))
-        
-
-        # break
-
-        starting_delimiter += 1
-        ending_delimiter += 1
-
-        return substring_without_start_and_end_newlines
+    return substring_without_start_and_end_newlines
 
 def split_three_line_substring(three_line_substring):
     list_of_one_line_substrings = three_line_substring.split('\n')
@@ -88,7 +74,6 @@ def convert_strings_to_sublists(list_of_one_line_substrings):
         list_with_sublists.append(list(one_line_substring))
 
     return list_with_sublists
-
 
 input_string = '''
 467..114..
@@ -102,9 +87,21 @@ input_string = '''
 ...$.*....
 .664.598..
 '''
-three_line_substring = get_three_line_substring(input_string)
-list_of_one_line_substrings = split_three_line_substring(three_line_substring)
-list_with_sublists = convert_strings_to_sublists(list_of_one_line_substrings)
-print(list_with_sublists)
+
+starting_delimiter = 1
+ending_delimiter = 4
+total_newline_chars = input_string.count("\n")
+
+while ending_delimiter <= total_newline_chars:
+    
+    three_line_substring = get_three_line_substring(input_string, starting_delimiter, ending_delimiter)
+    list_of_one_line_substrings = split_three_line_substring(three_line_substring)
+    list_with_sublists = convert_strings_to_sublists(list_of_one_line_substrings)
+    print(list_with_sublists)
+
+    # break
+
+    starting_delimiter += 1
+    ending_delimiter += 1
 
 
