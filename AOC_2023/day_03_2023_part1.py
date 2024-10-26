@@ -60,20 +60,31 @@ input_string = '''
 ...*......
 ..35..633.
 ......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..
 '''
 newline_char = "\n"
-start_counter = 1
-end_counter = 4
+starting_delimiter = 1
+ending_delimiter = 4
 total_newline_chars = input_string.count("\n")
 
-while end_counter <= total_newline_chars:
+while ending_delimiter <= total_newline_chars:
 
-    index_for_substr_start = find_index_for_substr_start(input_string, newline_char, start_counter)
+    index_for_substr_start = find_index_for_substr_start(input_string, newline_char, starting_delimiter)
 
-    index_for_substr_end = find_index_for_substr_end(input_string, newline_char, end_counter)
+    index_for_substr_end = find_index_for_substr_end(input_string, newline_char, ending_delimiter)
 
-    print(f'This is the index for substring start: {index_for_substr_start}')
-    print(f'This is the index for substring end: {index_for_substr_end}')
+    # print(f'This is the index for substring start: {index_for_substr_start}')
+    # print(f'This is the index for substring end: {index_for_substr_end + 1}')
 
-    start_counter += 1
-    end_counter += 1
+    substring = input_string[index_for_substr_start:index_for_substr_end + 1]
+    print(repr(substring))
+
+    break
+
+    starting_delimiter += 1
+    ending_delimiter += 1
