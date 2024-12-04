@@ -59,7 +59,6 @@ def main_func(puzzle_input):
 
     left_list = create_left_list(cleaned_num_string)
     right_list = create_right_list(cleaned_num_string)
-    # print(right_list)
     
     sorted_left_list = sorted(left_list, key=int)
     sorted_right_list = sorted(right_list, key=int)
