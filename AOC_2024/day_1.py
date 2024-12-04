@@ -44,18 +44,33 @@ def get_differences(sorted_left_list, sorted_right_list):
 
     return differences
 
+def get_similarity_scores(left_list, right_list):
+    scores = []
+    for num_str in left_list:
+        occurences = right_list.count(num_str)
+        score = int(num_str) * occurences
+        scores.append(score)
+
+    return scores
+
+
 def main_func(puzzle_input):
     cleaned_num_string = clean_num_string(puzzle_input)
 
     left_list = create_left_list(cleaned_num_string)
     right_list = create_right_list(cleaned_num_string)
+    # print(right_list)
     
     sorted_left_list = sorted(left_list, key=int)
     sorted_right_list = sorted(right_list, key=int)
 
     differences = get_differences(sorted_left_list, sorted_right_list)
-    total = sum(differences)
-    print(total)
+    part_1_total = sum(differences)
+    print(part_1_total)
+
+    scores = get_similarity_scores(left_list, right_list)
+    part_2_total = sum(scores)
+    print(part_2_total)
 
 main_func("""
     39472   15292
